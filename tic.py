@@ -1,32 +1,28 @@
+players = ["x", "o"]
+AI = "x"
+player_bord = [None]*9
 
-
+user = "o"
 def convert_array_tic(tic_string):
     tic_array = []
-    for i in range(9):
+    for i in range(len(tic_string)):
+        if tic_string[i] == "\n":
+            continue
         if tic_string[i] == " ":
             tic_array.append(None)
             continue
         tic_array.append(tic_string[i])
     return tic_array
-player_bord = [None, "x", None, None, None, "x", "o", "o","x"]
-#player_bord = [None]*9
-player_bord=convert_array_tic("o xx  xoo")#"o xx  xoo
-print(player_bord)
-
-players = ["x", "o"]
-AI = "x"
-user = "o"
 
 def get_winner(bord):
     #print("s", bord)
-    sumall = 0
     for player in players:
         if bord[0:3].count(player) == 3 or bord[3:6].count(player) == 3 or bord[6:9].count(player) == 3 \
                 or bord[0:10:4].count(player) == 3 or bord[2:8:2].count(player) == 3:  # get winner of the game
-            print("winner", player, bord)
+            #print("winner", player, bord)
             return player
     if not (None in bord):
-        print("draw")
+        #print("draw")
         return "draw"  # draw
 
 
@@ -53,8 +49,9 @@ def MinMax(bord, player):
                 if newscore!=None:
                     scorelist.append(newscore)
                 current_bord = bord.copy()       
-
-        print("back track",current_bord, scorelist,newscore)
+        if current_bord==player_bord:
+            return scorelist
+        #print("back track",current_bord, scorelist,newscore,player)
         if player == "x":
             max_list=max(scorelist)
             return max_list
@@ -71,18 +68,24 @@ def MinMax(bord, player):
                     scorelist.append(newscore)
                 current_bord = bord.copy()     
 
-        print("back track",current_bord, scorelist,newscore)
+        #print("back track",current_bord, scorelist,newscore,player)
+        if current_bord==player_bord:
+            return scorelist
         if player == "x":
             max_list= max(scorelist)
             return max_list
         else:
-            print("failed",current_bord, scorelist,newscore)
+            #print("failed",current_bord, scorelist,newscore)
             min_list = min(scorelist)
             return min_list
       
+def get_best_move(current_bord):
+    global player_bord
+    
+    bestpath=MinMax(player_bord.copy(), "x")
+    print(bestpath)
+    player_bord=convert_array_tic("         ")
+    #"o xx  xoo
+    print(player_bord)
 
-
-
-
-print(MinMax(player_bord.copy(), "x"))
-# print(get_winner())
+get_best_move()
