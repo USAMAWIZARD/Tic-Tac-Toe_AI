@@ -1,8 +1,13 @@
+from random import betavariate
+from tkinter import W
+
+from numpy import broadcast_arrays
+
+
 players = ["x", "o"]
 AI = "x"
-player_bord = [None]*9
-
 user = "o"
+player_bord = [None]*9
 def convert_array_tic(tic_string):
     tic_array = []
     for i in range(len(tic_string)):
@@ -16,8 +21,10 @@ def convert_array_tic(tic_string):
 
 def get_winner(bord):
     #print("s", bord)
+    
     for player in players:
         if bord[0:3].count(player) == 3 or bord[3:6].count(player) == 3 or bord[6:9].count(player) == 3 \
+            or bord[0:9:3].count(player) == 3 or bord[1:9:3].count(player) == 3 or bord[2:9:3].count(player) == 3 \
                 or bord[0:10:4].count(player) == 3 or bord[2:8:2].count(player) == 3:  # get winner of the game
             #print("winner", player, bord)
             return player
@@ -78,14 +85,22 @@ def MinMax(bord, player):
             #print("failed",current_bord, scorelist,newscore)
             min_list = min(scorelist)
             return min_list
-      
-def get_best_move(current_bord):
+def get_bestmove_positon(bestmove):
+    bestmove_index=bestmove.index(max(bestmove))
+    for i in range(len(player_bord)):
+        if player_bord[i] ==None:
+            if bestmove_index==0:
+                return i  
+            bestmove_index-=1
+    return i
+def get_best_move(bord_df):
     global player_bord
-    
-    bestpath=MinMax(player_bord.copy(), "x")
-    print(bestpath)
-    player_bord=convert_array_tic("         ")
-    #"o xx  xoo
     print(player_bord)
+    bestmove=MinMax(player_bord.copy(), "x")
+    print("bestmove pos",bestmove)
+    return get_bestmove_positon(bestmove)
+    #"o xx  xoo
 
-get_best_move()
+#print(player_bord)
+#print(get_winner(player_bord))
+#get_best_move([])
