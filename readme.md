@@ -23,7 +23,7 @@ Ex. -
 
 ## Contribute
 
-All the contiributions are wellcome
+All the contiributions are welcome
 
 ## Credits
 https://en.wikipedia.org/wiki/Minimax
