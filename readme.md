@@ -26,7 +26,7 @@ Ex. -
 All the contiributions are welcome
 
 ## Credits
-https://en.wikipedia.org/wiki/Minimax
+https://en.wikipedia.org/wiki/Minimax<br>
 Copied GUI from https://gist.github.com/riya1620/72c2b668ef29da061c44d97a82318572#file-tictactoe_completecode-py
 
 ## License
