@@ -11,7 +11,7 @@ The board (which can be a drawing on a paper or other place) consists of a squar
 Each player takes turns drawing a cross or a circle in a square (or placing tokens of different shapes or colors) The winner is the one who manages to place three equal pieces in a row, either vertically, horizontally or diagonally.
 
 ## Goal 
-To improver Algorithm skills (Game Tree AI)
+To improve Algorithm skills (Game Tree AI)
 
 ## Tech/framework used
 Ex. -
