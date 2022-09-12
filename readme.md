@@ -20,6 +20,10 @@ Ex. -
 <li><b>Tkinter</b></li>
 </ul>
 
+## Demo
+
+https://user-images.githubusercontent.com/47350008/189677512-965453f7-60db-486f-9fc8-300a461b14fb.mp4
+
 
 ## Contribute
 
