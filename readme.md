@@ -36,4 +36,4 @@ Copied GUI from https://gist.github.com/riya1620/72c2b668ef29da061c44d97a8231857
 ## License
 (MIT, Apache etc)
 
-MIT © [USAMAWIZARD]()
+MIT © [USAMAWIZARD]() 
