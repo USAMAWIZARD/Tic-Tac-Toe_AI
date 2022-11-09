@@ -79,4 +79,4 @@ def changeVal(button,position,player):
         if win_or_draw==None:
             messagebox.showerror("Error","This box already has a value!")
 is_AI_first=False
-TicTacToeGUI()
+TicTacToeGUI() 
